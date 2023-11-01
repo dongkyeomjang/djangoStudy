@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.db import models
 
-class Projfile(models.Model):
+class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE) # Profile은 settings.AUTH_USER_MODEL과 1대1 관계. 즉 한 명의 유저는 하나의 프로필만 가질 수 있음
     blog_url = models.URLField(blank=True)
 
