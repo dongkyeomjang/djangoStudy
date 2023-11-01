@@ -19,5 +19,6 @@ from django.urls import path, include #include 추가
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('blog1', include('blog1.urls')), #blog1/urls.py를 include
+    path('blog1/', include('blog1.urls')), #blog1/urls.py를 include
+    path('instagram/', include('instagram.urls')), #instagram/urls.py를 include
 ]
