@@ -12,9 +12,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
+# __file__은 settings.py의 경로를 의미하고, Path(__file__)을 통해 Path객체로 변환함. 
+# resolve()는 절대경로로 변환함. parent.parent는 부모 디렉토리의 부모 디렉토리를 의미함. 즉 BASE_DIR는 first 디렉토리를 의미함
+BASE_DIR = Path(__file__).resolve().parent.parent 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -118,6 +118,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT= ' ' # TODO
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / '../public/media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
