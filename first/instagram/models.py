@@ -19,9 +19,8 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True) #auto_now_add=True는 생성시간을 자동으로 넣어줌
     updated_at = models.DateTimeField(auto_now=True) #auto_now=True는 수정시간을 d자동으로 넣어줌
     is_public = models.BooleanField(default=False)
-    
 
-    def __str__(self):
+    def __str__(self): # Post 객체를 문자열로 표현하려고 할 때 호출됨
         return self.title
     def desc_length(self):
         return len(self.desc)

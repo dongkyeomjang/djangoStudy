@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions', #django_extensions는 장고에서 제공하지 않는 명령어를 추가해줌
     'blog1',
     'instagram',
 ]

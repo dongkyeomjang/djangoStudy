@@ -10,5 +10,5 @@ urlpatterns = [
 ]
 
 #DEBUG는 개발모드일 때만 True이며, 실제 서비스 시에는 False로 설정함.
-if settings.DEBUG: # 장고는 서비스 시에 media나 static file을 실제 프로덕션에서 제공하는 것을 권장하지 않음. 그래서 개발모드일 때만 제공하도록 설정함
+if settings.DEBUG: # 장고는 서비스 시에 media나 static file을 실제 프로덕션에서 제공하는 것을 권장하지 않음. 따라서 개발모드일 때만 제공하도록 설정함
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
