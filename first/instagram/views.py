@@ -37,6 +37,7 @@ class PostListView(ListView):
         context['q']=self.request.GET.get('q','')
         return context
 
+#클래스.as_view()를 통해, 호출 가능한 객체를 생성 및 리턴
 post_list=PostListView.as_view()
 
     
@@ -48,14 +49,19 @@ post_list=PostListView.as_view()
 # /instagram/2/
 # /instagram/3/
 
+# view 함수는 무조건 HttpResponse 객체를 리턴해야한다. render함수의 리턴은 HttpResponse이다.
 # def post_detail(request,pk):
-#     post=get_object_or_404(Post,pk=pk)
-#     # try:
-#     #     post=Post.objects.get(pk=pk) #존재하지 않는다면, Post.DoesNotExist 예외가 발생함.
-#     # except:
-#     #     raise Http404
+#     post=get_object_or_404(Post,pk=pk) #앞에가 모델의 pk, 뒤에가 인자로 넘겨받은 pk
 #     return render(request, 'instagram/post_detail.html',{
 #         'post':post,
 #     })
 
-post_detail=DetailView.as_view(model=Post)
+
+#클래스.as_view()를 통해 호출 가능한 객체를 생성 및 리턴
+#post_detail=DetailView.as_view(model=Post)
+
+class PostDetailView(DetailView):
+    model=Post
+    pk_url_kwarg='pk'
+
+post_detail=PostDetailView.as_view()

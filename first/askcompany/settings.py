@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # __file__은 settings.py의 경로를 의미하고, Path(__file__)을 통해 Path객체로 변환함. 
 # resolve()는 절대경로로 변환함. parent.parent는 부모 디렉토리의 부모 디렉토리를 의미함. 즉 BASE_DIR는 first 디렉토리를 의미함
@@ -57,7 +58,10 @@ ROOT_URLCONF = 'askcompany.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            # File System Template Loader
+            os.path.join(BASE_DIR,'askcompany','templates') # askcompany-> templates 안에 템플릿을 모으겠다는 뜻
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
